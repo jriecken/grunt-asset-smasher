@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Grunt-asset-smasher : Grunt plugin for asset-smasher" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Grunt-asset-smasher</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jriecken/grunt-asset-smasher">View on GitHub</a>
+
+          <h1 id="project_title">Grunt-asset-smasher</h1>
+          <h2 id="project_tagline">Grunt plugin for asset-smasher</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jriecken/grunt-asset-smasher/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jriecken/grunt-asset-smasher/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="grunt-asset-smasher" class="anchor" href="#grunt-asset-smasher"><span class="octicon octicon-link"></span></a>grunt-asset-smasher</h1>
+
+<blockquote>
+<p>Grunt plugin for <a href="http://jriecken.github.io/asset-smasher/">asset-smasher</a></p>
+</blockquote>
+
+<p>See <a href="http://jriecken.github.io/asset-smasher/">the asset-smasher homepage</a> for more details on usage of asset-smasher and how it works.</p>
+
+<h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>This plugin requires Grunt <code>~0.4.1</code> and asset-smasher <code>~0.3.0</code></p>
+
+<p>If you haven't used <a href="http://gruntjs.com/">Grunt</a> before, be sure to check out the <a href="http://gruntjs.com/getting-started">Getting Started</a> guide, as it explains how to create a <a href="http://gruntjs.com/sample-gruntfile">Gruntfile</a> as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:</p>
+
+<pre lang="shell"><code>npm install grunt-asset-smasher --save-dev
+</code></pre>
+
+<p>One the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:</p>
+
+<div class="highlight"><pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">'grunt-asset-smasher'</span><span class="p">);</span>
+</pre></div>
+
+<h2>
+<a name="the-asset_smasher-task" class="anchor" href="#the-asset_smasher-task"><span class="octicon octicon-link"></span></a>The "asset_smasher" task</h2>
+
+<h3>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h3>
+
+<p>In your project's Gruntfile, add a section named <code>asset_smasher</code> to the data object passed into <code>grunt.initConfig()</code>.</p>
+
+<div class="highlight"><pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+  <span class="nx">asset_smasher</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+      <span class="c1">// asset-smasher options go here</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+<span class="p">})</span>
+</pre></div>
+
+<h3>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h3>
+
+<h4>
+<a name="optionsoutputto" class="anchor" href="#optionsoutputto"><span class="octicon octicon-link"></span></a>options.outputTo</h4>
+
+<p>Type: <code>String</code>
+Default value: No Default. This must be specified</p>
+
+<p>The directory to output assets into</p>
+
+<h4>
+<a name="optionspaths" class="anchor" href="#optionspaths"><span class="octicon octicon-link"></span></a>options.paths</h4>
+
+<p>Type: <code>String[]</code>
+Default value: <code>[process.cwd()]</code></p>
+
+<p>An array of asset paths</p>
+
+<h4>
+<a name="optionsonly" class="anchor" href="#optionsonly"><span class="octicon octicon-link"></span></a>options.only</h4>
+
+<p>Type: <code>String[]</code>
+Default value: <code>['**.*.*']</code></p>
+
+<p>Array of glob patterns for assets that should be output (other assets will be filtered out/not processed)</p>
+
+<h4>
+<a name="optionsprefix" class="anchor" href="#optionsprefix"><span class="octicon octicon-link"></span></a>options.prefix</h4>
+
+<p>Type: <code>String</code>
+Default value: <code>''</code></p>
+
+<p>Prefix to append to logical paths when constructing urls. use if output dir is not served from the root of your web app</p>
+
+<h4>
+<a name="optionscompress" class="anchor" href="#optionscompress"><span class="octicon octicon-link"></span></a>options.compress</h4>
+
+<p>Type: <code>Boolean</code>
+Default value: <code>false</code></p>
+
+<p>Whether to compress JavaScript and CSS assets</p>
+
+<h4>
+<a name="optionshash" class="anchor" href="#optionshash"><span class="octicon octicon-link"></span></a>options.hash</h4>
+
+<p>Type: <code>Boolean</code>
+Default value: <code>false</code></p>
+
+<p>Whether to output copies of the final assets with an MD5 hash of the contents appended to the file name (e.g. myasset-xxxxxxxxxxxxxxxxxxxx.js)</p>
+
+<h4>
+<a name="optionsgzip" class="anchor" href="#optionsgzip"><span class="octicon octicon-link"></span></a>options.gzip</h4>
+
+<p>Type: <code>Boolean</code>
+Default value: <code>false</code></p>
+
+<p>Whether to output a copy of the final assets gzipped</p>
+
+<h4>
+<a name="optionshashversion" class="anchor" href="#optionshashversion"><span class="octicon octicon-link"></span></a>options.hashVersion</h4>
+
+<p>Type: <code>String</code>
+Default value: <code>1.0</code></p>
+
+<p>Change this value if you want to invalidate all of your assets (the version is included when computing the hash value for an asset)</p>
+
+<h4>
+<a name="optionshelpers" class="anchor" href="#optionshelpers"><span class="octicon octicon-link"></span></a>options.helpers</h4>
+
+<p>Type: <code>Object</code>
+Default value: <code>{}</code></p>
+
+<p>Helpers/values to pass into transformers (e.g. the <code>ejs</code> transformer exposes these as local variables)</p>
+
+<h4>
+<a name="optionsamd" class="anchor" href="#optionsamd"><span class="octicon octicon-link"></span></a>options.amd</h4>
+
+<p>Type: <code>Boolean|Object</code>
+Default value: <code>false</code></p>
+
+<p>Whether to enable AMD module support. Either a boolean can be passed in, or an object of the form</p>
+
+<pre><code>{
+  baseLogicalPath: 'base/path' // The value defaults to '' and will be stripped off of all logical paths before constructing module ids
+}
+</code></pre>
+
+<h4>
+<a name="optionsverbose" class="anchor" href="#optionsverbose"><span class="octicon octicon-link"></span></a>options.verbose</h4>
+
+<p>Type: <code>Boolean</code>
+Default value: <code>false</code></p>
+
+<p>Whether verbose information should be printed out to stdout when compiling</p>
+
+<h4>
+<a name="optionsnoclean" class="anchor" href="#optionsnoclean"><span class="octicon octicon-link"></span></a>options.noclean</h4>
+
+<p>Type: <code>Boolean</code>
+Default value: <code>false</code></p>
+
+<p>Whether to prevent deletion of the output directory before compilation</p>
+
+<h3>
+<a name="usage-examples" class="anchor" href="#usage-examples"><span class="octicon octicon-link"></span></a>Usage Examples</h3>
+
+<h4>
+<a name="basic-options" class="anchor" href="#basic-options"><span class="octicon octicon-link"></span></a>Basic Options</h4>
+
+<p>This will compile all files in <code>my/assets</code> and output them to <code>output/dir</code></p>
+
+<div class="highlight"><pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+  <span class="nx">asset_smasher</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">paths</span><span class="o">:</span> <span class="p">[</span><span class="s1">'my/assets'</span><span class="p">],</span>
+      <span class="nx">outputTo</span><span class="o">:</span> <span class="s1">'output/dir'</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+<span class="p">})</span>
+</pre></div>
+
+<h4>
+<a name="more-advanced-options" class="anchor" href="#more-advanced-options"><span class="octicon octicon-link"></span></a>More Advanced Options</h4>
+
+<p>This compiles only the manifest files in several asset paths, compresses the result, and creates hashed versions of the files.</p>
+
+<div class="highlight"><pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+  <span class="nx">asset_smasher</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">paths</span><span class="o">:</span> <span class="p">[</span><span class="s1">'my/assets'</span><span class="p">,</span> <span class="s1">'my/otherassets'</span><span class="p">],</span>
+      <span class="nx">outputTo</span><span class="o">:</span> <span class="s1">'output/dir'</span><span class="p">,</span>
+      <span class="nx">only</span><span class="o">:</span> <span class="p">[</span><span class="s1">'**/*.mf'</span><span class="p">],</span>
+      <span class="nx">prefix</span><span class="o">:</span> <span class="s1">'assets'</span><span class="p">,</span>
+      <span class="nx">compress</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nx">hash</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+<span class="p">})</span>
+</pre></div>
+
+<h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using <a href="http://gruntjs.com/">Grunt</a>.</p>
+
+<h2>
+<a name="release-history" class="anchor" href="#release-history"><span class="octicon octicon-link"></span></a>Release History</h2>
+
+<h3>
+<a name="01-june-20-2013" class="anchor" href="#01-june-20-2013"><span class="octicon octicon-link"></span></a>0.1 (June 20, 2013)</h3>
+
+<p>Initial release - Compatible with <code>asset-smasher</code> 0.3.x</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Grunt-asset-smasher maintained by <a href="https://github.com/jriecken">jriecken</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
