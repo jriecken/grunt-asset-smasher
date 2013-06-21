@@ -50,7 +50,7 @@ An array of asset paths
 
 #### options.only
 Type: `String[]`
-Default value: `['**.*.*']`
+Default value: `['**/*.*']`
 
 Array of glob patterns for assets that should be output (other assets will be filtered out/not processed)
 
