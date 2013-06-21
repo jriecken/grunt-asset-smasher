@@ -139,7 +139,7 @@ grunt.initConfig({
     options: {
       paths: ['my/assets', 'my/otherassets'],
       outputTo: 'output/dir',
-      only: ['**.*.mf'],
+      only: ['**/*.mf'],
       prefix: 'assets',
       compress: true,
       hash: true
