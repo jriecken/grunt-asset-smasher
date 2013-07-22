@@ -29,6 +29,8 @@ grunt.initConfig({
   asset_smasher: {
     options: {
       // asset-smasher options go here
+    },
+    dist: {
     }
   },
 })
