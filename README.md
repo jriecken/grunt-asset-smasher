@@ -1,3 +1,5 @@
+**NOTE: This library is not maintained anymore. If you want a much better solution for JavaScript bundling, use [Webpack](https://webpack.github.io/)**
+
 # grunt-asset-smasher
 
 > Grunt plugin for [asset-smasher](http://jriecken.github.io/asset-smasher/)
